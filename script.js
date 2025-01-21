@@ -12,6 +12,6 @@ for (let i = 0; i < 256; i++) {
     item.addEventListener("mouseleave", (event) => {
         setTimeout(() => {
             event.target.classList.remove("item-hover");
-        }, 1000);
+        }, 2000);
     })
 }

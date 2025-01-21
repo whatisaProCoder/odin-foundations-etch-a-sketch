@@ -51,3 +51,8 @@ header {
     border-radius: 2px;
     margin: 2px;
 }
+
+.item-hover {
+    background-color: #d82dd3;
+    transition: background-color 0.3s ease;
+}

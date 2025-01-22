@@ -1,8 +1,4 @@
 function createGrid(numberOfBoxes) {
-    if(numberOfBoxes > 100) {
-        numberOfBoxes = 100;
-    }
-    
     const container = document.querySelector(".container");
     container.innerHTML = '';
 
@@ -40,6 +36,7 @@ settings.addEventListener("click", () => {
     numberOfBoxes = parseInt(numberOfBoxes, 10);
     if (isNaN(numberOfBoxes) || numberOfBoxes <= 0 || numberOfBoxes > 100) {
         numberOfBoxes = 16;
+        alert("Max limit is 100...");
     }
     createGrid(numberOfBoxes);
 });

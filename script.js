@@ -32,8 +32,9 @@ createGrid(16);
 
 const settings = document.querySelector(".settings");
 settings.addEventListener("click", () => {
-    const numberOfBoxes = prompt("Enter number of boxes?");
-    if (numberOfBoxes.length == 0) {
+    let numberOfBoxes = prompt("Enter number of boxes?");
+    numberOfBoxes = parseInt(numberOfBoxes, 10);
+    if (isNaN(numberOfBoxes) || numberOfBoxes <= 0 || numberOfBoxes > 100) {
         numberOfBoxes = 16;
     }
     createGrid(numberOfBoxes);

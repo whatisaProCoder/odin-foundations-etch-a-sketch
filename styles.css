@@ -65,3 +65,7 @@ header {
     font-weight: 600;
     user-select: none;
 }
+
+.settings:active {
+    background-color: #bd4500;
+}

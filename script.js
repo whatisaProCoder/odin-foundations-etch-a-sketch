@@ -1,17 +1,37 @@
-const container = document.querySelector(".container");
+function createGrid(numberOfBoxes) {
+    const container = document.querySelector(".container");
+    container.innerHTML = '';
 
-for (let i = 0; i < 256; i++) {
-    const item = document.createElement("div");
-    item.classList.add("item");
-    container.appendChild(item);
+    const itemSize = 640 / numberOfBoxes;
 
-    item.addEventListener("mouseenter", (event) => {
-        event.target.classList.add("item-hover");
-    })
+    container.style.display = "grid";
+    container.style.gridTemplateColumns = `repeat(${numberOfBoxes}, ${itemSize}px)`;
+    container.style.gridTemplateRows = `repeat(${numberOfBoxes}, ${itemSize}px)`;
 
-    item.addEventListener("mouseleave", (event) => {
-        setTimeout(() => {
-            event.target.classList.remove("item-hover");
-        }, 2000);
-    })
+    for (let i = 0; i < numberOfBoxes * numberOfBoxes; i++) {
+        const item = document.createElement("div");
+        item.classList.add("item");
+        item.style.width = `${itemSize}px`;
+        item.style.height = `${itemSize}px`;
+        container.appendChild(item);
+
+        item.addEventListener("mouseenter", (event) => {
+            const randomColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            event.target.style.backgroundColor = randomColor;
+        });
+
+        item.addEventListener("mouseleave", (event) => {
+            setTimeout(() => {
+                event.target.style.backgroundColor = '';
+            }, 4000);
+        });
+    }
 }
+
+createGrid(16);
+
+const settings = document.querySelector(".settings");
+settings.addEventListener("click", () => {
+    const numberOfBoxes = prompt("Enter number of boxes?");
+    createGrid(numberOfBoxes);
+});

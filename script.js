@@ -1,4 +1,8 @@
 function createGrid(numberOfBoxes) {
+    if(numberOfBoxes > 100) {
+        numberOfBoxes = 100;
+    }
+    
     const container = document.querySelector(".container");
     container.innerHTML = '';
 
